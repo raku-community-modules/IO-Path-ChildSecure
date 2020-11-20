@@ -6,7 +6,7 @@ IO::Path::ChildSecure -Secure version of IO::Path.child
 
 # SYNOPSIS
 
-```perl6
+```raku
     use IO::Path::ChildSecure;
 
     # good; you get IO::Path
@@ -21,17 +21,16 @@ IO::Path::ChildSecure -Secure version of IO::Path.child
 
 # DESCRIPTION
 
-In 6.c Perl 6 language,
-[`IO::Path.child`](https://docs.perl6.org/type/IO::Path#method_child) isn't
+In the Raku Programming Language v6.c,
+[`IO::Path.child`](https://docs.raku.org/type/IO::Path#method_child) isn't
 secure, in a sense that it does no checks for whether the resultant path is
-actually a child of the original path. It *will* be made secure in 6.d language,
-but in the meantime you can use another method provided by this module!
+actually a child of the original path.
 
 # EXPORTED SUBROUTINES
 
 ## `&child-secure`
 
-```perl6
+```raku
     "foo".IO.&child-secure: 'meow'; # good; you get IO::Path
     "foo".IO.&child-secure: 'meow/foo/bar/../meow'; # still good
     "foo".IO.&child-secure: '../';  # bad; path isn't a child; you get Failure
@@ -44,7 +43,7 @@ is, in fact, a child of the invocant, by accessing the filesystem and
 fully-resolving the path. The last chunk of the resultant path does not have
 to exist for the resolution to succeed.
 
-Will [`fail`](https://docs.perl6.org/routine/fail) with `X::IO::Resolve` if
+Will [`fail`](https://docs.raku.org/routine/fail) with `X::IO::Resolve` if
 failed to fully resolve the resultant path
 or with `X::IO::NotAChild` if the resultant path is not a child of the invocant.
 
@@ -54,19 +53,19 @@ or with `X::IO::NotAChild` if the resultant path is not a child of the invocant.
   (more specifically, anything earlier than dev version
     v2017.03.292.g.0.b.5.a.41.ba.8)
 - If you don't need to ensure secureness, use the much-faster core
-  [`IO::Path.add` method](https://docs.perl6.org/type/IO::Path#method_add)
+  [`IO::Path.add` method](https://docs.raku.org/type/IO::Path#method_add)
 
 ----
 
 #### REPOSITORY
 
 Fork this module on GitHub:
-https://github.com/zoffixznet/perl6-IO-Path-ChildSecure
+https://github.com/raku-community-modules/IO-Path-ChildSecure
 
 #### BUGS
 
 To report bugs or request features, please use
-https://github.com/zoffixznet/perl6-IO-Path-ChildSecure/issues
+https://github.com/raku-community-modules/IO-Path-ChildSecure/issues
 
 #### AUTHOR
 
