@@ -90,5 +90,6 @@ is-path $parent.&child-secure('foo/../bar'), $parent.child('bar'),
 failuring-like { $parent.&child-secure('foo/../../bar') }, X::IO::NotAChild,
     'resolved parent fails (given path is not a child, via child + ../)';
 
-failuring-like { $parent.&child-secure("../\x[308]") }, X::IO::NotAChild,
+my $combiner-path = ".." ~ $*SPEC.dir-sep ~ "\x[308]";
+failuring-like { $parent.&child-secure($combiner-path) }, X::IO::NotAChild,
 'resolved parent fails (given path is not a child, via combiners)';
