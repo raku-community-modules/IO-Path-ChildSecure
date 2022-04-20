@@ -7,16 +7,16 @@ IO::Path::ChildSecure -Secure version of IO::Path.child
 # SYNOPSIS
 
 ```raku
-    use IO::Path::ChildSecure;
+use IO::Path::ChildSecure;
 
-    # good; you get IO::Path
-    "foo".IO.&child-secure: 'meow';
+# good; you get IO::Path
+"foo".IO.&child-secure: 'meow';
 
-    # still good if 'foo/meow/foo/bar/../' exists; Failure if it doesn't
-    "foo".IO.&child-secure: 'meow/foo/bar/../meow';
+# still good if 'foo/meow/foo/bar/../' exists; Failure if it doesn't
+"foo".IO.&child-secure: 'meow/foo/bar/../meow';
 
-    # bad; path isn't a child; you get Failure
-    "foo".IO.&child-secure: '../';
+# bad; path isn't a child; you get Failure
+"foo".IO.&child-secure: '../';
 ```
 
 # DESCRIPTION
@@ -31,11 +31,11 @@ actually a child of the original path.
 ## `&child-secure`
 
 ```raku
-    "foo".IO.&child-secure: 'meow'; # good; you get IO::Path
-    "foo".IO.&child-secure: 'meow/foo/bar/../meow'; # still good
-    "foo".IO.&child-secure: '../';  # bad; path isn't a child; you get Failure
+"foo".IO.&child-secure: 'meow'; # good; you get IO::Path
+"foo".IO.&child-secure: 'meow/foo/bar/../meow'; # still good
+"foo".IO.&child-secure: '../';  # bad; path isn't a child; you get Failure
 
-    child-secure "foo".IO, '../';  # can also use as a proper sub
+child-secure "foo".IO, '../';  # can also use as a proper sub
 ```
 
 Appends the given path chunk to the invocant and ensures the resultant path
@@ -69,7 +69,7 @@ https://github.com/raku-community-modules/IO-Path-ChildSecure/issues
 
 #### AUTHOR
 
-Zoffix Znet (http://perl6.party/)
+Zoffix Znet (http://perl6.party/) + Raku Modules adoption center.
 
 #### LICENSE
 
