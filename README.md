@@ -1,10 +1,12 @@
-[![Build Status](https://travis-ci.org/zoffixznet/perl6-IO-Path-ChildSecure.svg)](https://travis-ci.org/zoffixznet/perl6-IO-Path-ChildSecure)
+[![Actions Status](https://github.com/raku-community-modules/IO-Path-ChildSecure/actions/workflows/test.yml/badge.svg)](https://github.com/raku-community-modules/IO-Path-ChildSecure/actions)
 
-# NAME
+NAME
+====
 
-IO::Path::ChildSecure -Secure version of IO::Path.child
+IO::Path::ChildSecure - Secure version of IO::Path.child
 
-# SYNOPSIS
+SYNOPSIS
+========
 
 ```raku
 use IO::Path::ChildSecure;
@@ -19,16 +21,18 @@ use IO::Path::ChildSecure;
 "foo".IO.&child-secure: '../';
 ```
 
-# DESCRIPTION
+DESCRIPTION
+===========
 
-In the Raku Programming Language v6.c,
-[`IO::Path.child`](https://docs.raku.org/type/IO::Path#method_child) isn't
-secure, in a sense that it does no checks for whether the resultant path is
-actually a child of the original path.
+In the Raku Programming Language, [IO::Path.child](https://docs.raku.org/type/IO::Path#method_child) isn't secure, in a sense that it does no checks for whether the resultant path is actually a child of the original path.
 
-# EXPORTED SUBROUTINES
+This module provides a subroutine that can be used as an alternative that **will** check whether the resultant path is a child of the original path.
 
-## `&child-secure`
+EXPORTED SUBROUTINES
+====================
+
+child-secure
+------------
 
 ```raku
 "foo".IO.&child-secure: 'meow'; # good; you get IO::Path
@@ -38,44 +42,26 @@ actually a child of the original path.
 child-secure "foo".IO, '../';  # can also use as a proper sub
 ```
 
-Appends the given path chunk to the invocant and ensures the resultant path
-is, in fact, a child of the invocant, by accessing the filesystem and
-fully-resolving the path. The last chunk of the resultant path does not have
-to exist for the resolution to succeed.
+Appends the given path chunk to the invocant and ensures the resultant path is, in fact, a child of the invocant, by accessing the filesystem and fully-resolving the path. The last chunk of the resultant path does not have to exist for the resolution to succeed.
 
-Will [`fail`](https://docs.raku.org/routine/fail) with `X::IO::Resolve` if
-failed to fully resolve the resultant path
-or with `X::IO::NotAChild` if the resultant path is not a child of the invocant.
+Will [fail](https://docs.raku.org/routine/fail) with `X::IO::Resolve` if failed to fully resolve the resultant path or with `X::IO::NotAChild` if the resultant path is not a child of the invocant.
 
-# SPECIAL NOTES
+SPECIAL NOTES
+=============
 
-- Module requires Rakudo 2017.04 or newer and will `die` on earlier versions
-  (more specifically, anything earlier than dev version
-    v2017.03.292.g.0.b.5.a.41.ba.8)
-- If you don't need to ensure secureness, use the much-faster core
-  [`IO::Path.add` method](https://docs.raku.org/type/IO::Path#method_add)
+If you don't need to ensure secureness, use the much-faster core [`IO::Path.add` method](https://docs.raku.org/type/IO::Path#method_add)
 
-----
+AUTHOR
+======
 
-#### REPOSITORY
+Zoffix Znet
 
-Fork this module on GitHub:
-https://github.com/raku-community-modules/IO-Path-ChildSecure
+COPYRIGHT AND LICENSE
+=====================
 
-#### BUGS
+Copyright 2017-2018 Zoffix Znet
 
-To report bugs or request features, please use
-https://github.com/raku-community-modules/IO-Path-ChildSecure/issues
+Copyright 2019-2022 Raku Community
 
-#### AUTHOR
+This library is free software; you can redistribute it and/or modify it under the Artistic License 2.0.
 
-Zoffix Znet (http://perl6.party/) + Raku Modules adoption center.
-
-#### LICENSE
-
-You can use and distribute this module under the terms of the
-The Artistic License 2.0. See the `LICENSE` file included in this
-distribution for complete details.
-
-The `META6.json` file of this distribution may be distributed and modified
-without restrictions or attribution.

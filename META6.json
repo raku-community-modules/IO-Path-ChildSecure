@@ -1,17 +1,28 @@
 {
-    "perl"         : "6.c",
-    "name"         : "IO::Path::ChildSecure",
-    "license"      : "Artistic-2.0",
-    "version"      : "1.001011",
-    "description"  : "Secure version of IO::Path.child",
-    "tags"         : [ "file", "file system" ],
-    "depends"      : [],
-    "test-depends" : [
-        "Test"
-    ],
-    "provides"     : {
-        "IO::Path::ChildSecure" : "lib/IO/Path/ChildSecure.pm6"
-    },
-    "authors"       : ["Zoffix Znet"],
-    "support"       : {"source"   : "git://github.com/raku-community-modules/IO-Path-ChildSecure.git"}
+  "auth": "zef:raku-community-modules",
+  "authors": [
+    "Zoffix Znet"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Secure version of IO::Path.child",
+  "license": "Artistic-2.0",
+  "name": "IO::Path::ChildSecure",
+  "perl": "6.c",
+  "provides": {
+    "IO::Path::ChildSecure": "lib/IO/Path/ChildSecure.rakumod"
+  },
+  "resources": [
+  ],
+  "source-url": "https://github.com/raku-community-modules/IO-Path-ChildSecure.git",
+  "tags": [
+    "file",
+    "file system"
+  ],
+  "test-depends": [
+    "Test"
+  ],
+  "version": "1.1"
 }
