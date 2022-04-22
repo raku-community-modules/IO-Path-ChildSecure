@@ -1,6 +1,6 @@
-#!perl6
-
-use lib 'lib';
 use Test;
+
+plan 1;
 use-ok 'IO::Path::ChildSecure';
-done-testing;
+
+# vim: expandtab shiftwidth=4

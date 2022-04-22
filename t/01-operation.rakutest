@@ -1,4 +1,3 @@
-use lib 'lib';
 use Test;
 use IO::Path::ChildSecure;
 
@@ -93,3 +92,5 @@ failuring-like { $parent.&child-secure('foo/../../bar') }, X::IO::NotAChild,
 my $combiner-path = ".." ~ $*SPEC.dir-sep ~ "\x[308]";
 failuring-like { $parent.&child-secure($combiner-path) }, X::IO::NotAChild,
 'resolved parent fails (given path is not a child, via combiners)';
+
+# vim: expandtab shiftwidth=4

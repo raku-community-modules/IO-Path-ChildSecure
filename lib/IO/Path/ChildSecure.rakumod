@@ -1,5 +1,3 @@
-unit class IO::Path::ChildSecure:ver<1.1>:auth<zef:raku-community-modules>;
-
 # The goal of this method is to guarantee the resultant child path is
 # inside the invocant. We resolve the path completely, so for that to
 # happen, the kid cannot be inside some currently non-existent dirs, so
